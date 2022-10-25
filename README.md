@@ -7,7 +7,7 @@ This repository has a bunch of protected branches that are in various states. Th
 
 ### Rewriting your latest commit
 
-This exercise will explore rewriting the commit message of your latest commit on your branch.
+This exercise will explore rewriting the commit message of your latest commit on your branch. A common use case for this is making your commit message more descriptive before pushing your code and saying it is ready to be reviewed. Or that a reviewer of your code thinks you should modify your commit message to make it more descriptive. 
 
 <details>
 <summary>Exercise</summary>
@@ -112,6 +112,7 @@ If you do a simple `git log` you should now see that the base of your feature br
 ### Rebasing with conflict
 
 Sometimes when we rebase, there could be conflicts, which is what this exercise explores. They are no different to merge conflicts, except that they happen when you rebase.
+
 <details>
 <summary>Exercise</summary>
 
@@ -151,6 +152,38 @@ If you do a simple `git log` you should now see that the base of your feature br
 </details>
 
 ### Rewriting an earlier commit on your branch
+
+This is similar to our earlier exercise where we rewrote a commit. However, this time it is not our latest commit, so it is a bit trickier to do it. Again a typical use case here is if you want to make your commit messages more descriptive before pushing your code and saying it is ready to be reviewed.
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-rewrite-early-commit` with two commits on it:
+
+```commandline
+git --no-pager log --pretty=format:%s 33dc87..HEAD
+
+the world's most perfect commit message that no one should ruin
+CHANGE ME
+```
+
+Note that the 'CHANGE ME' commit is _after_ your perfect commit message. I.e. we don't want to ruin our already perfect commit message.
+
+##### Task
+Change the 'CHANGE ME' commit message to instead say 'changed'. The other commit message should stay the same.
+
+```commandline
+git --no-pager log --pretty=format:%s 33dc87..HEAD
+
+the world's most perfect commit message that no one should ruin
+changed
+```
+
+</details>
+
 
 ### Adding to an earlier commit on your branch
 
