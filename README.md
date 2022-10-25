@@ -111,6 +111,45 @@ If you do a simple `git log` you should now see that the base of your feature br
 
 ### Rebasing with conflict
 
+Sometimes when we rebase, there could be conflicts, which is what this exercise explores. They are no different to merge conflicts, except that they happen when you rebase.
+<details>
+<summary>Exercise</summary>
+
+##### Setup
+
+Base branch: `exercise-rebase-conflict-base`
+Feature branch: `exercise-rebase-conflict-feature`
+
+Similar to the other rebasing exercise above, in this one we want to rebase a 'feature' branch on top of a 'base' branch. However, this time there will be conflicts... The base branch has 2 commits: 1 that adds a file, and a subsequent 1 that appends a sentence in the file. The feature branch branched off of the base branch after the file was added but before the sentence was appended. The feature branch has 1 commit that prepends a sentence to the same file.
+
+Check out the branch `exercise-rebase-conflict-feature` and run `git --no-pager log --pretty=format:%s 7a8be75..HEAD` to confirm you can only see the 'prepend sentence' commit:
+
+```commandline
+git --no-pager log --pretty=format:%s 7a8be75..HEAD
+
+prepend sentence to rebase example file
+```
+
+##### Task
+Rebase `exercise-rebase-conflict-feature` onto `exercise-rebase-conflict-base` so that the 'feature' branch will have its commits on top of the 'base' branch. As part of this you will need to resolve some conflicts. The commits should look like this:
+
+```commandline
+git --no-pager log --pretty=format:%s 7a8be75..HEAD
+
+prepend sentence to rebase example file
+append sentence to rebase example file
+```
+
+`rebase_example.txt` should look like this:
+
+```text
+This sentence is added on the feature branch and should be at the beginning. This is a text file to showcase rebasing with conflicts. This sentence is added on the base branch and should be at the end.
+```
+
+If you do a simple `git log` you should now see that the base of your feature branch is again on top of the base branch, with your extra commit adding file 2.
+
+</details>
+
 ### Rewriting an earlier commit on your branch
 
 ### Adding to an earlier commit on your branch
