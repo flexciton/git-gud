@@ -7,6 +7,32 @@ This repository has a bunch of protected branches that are in various states. Th
 
 ### Rewriting your latest commit
 
+This exercise will explore renaming your latest commit on your branch.
+
+<details>
+<summary>Setup</summary>
+
+##### Setup
+Check out the branch `exercise-latest-commit-rewrite`.
+
+Confirm that if you run `git --no-pager log --pretty=format:%s 81795d5..HEAD` you see the following:
+```bash
+git --no-pager log --pretty=format:%s 81795d5..HEAD
+CHANGE ME
+```
+This command shows the commit messages between the HEAD of your branch and the commit where `exercise-latest-commit-rewrite` branched off of (if there is a % that can be ignored).
+
+##### Task
+Change the message of the latest commit so that it instead displays the following:
+
+```bash
+git --no-pager log --pretty=format:%s 81795d5..HEAD
+changed%
+```
+
+</details>
+
+
 ### Adding to your latest commit
 
 ### Rebasing
