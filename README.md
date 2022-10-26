@@ -255,7 +255,7 @@ Date:   Wed Oct 26 16:26:40 2022 +0100
     second commit to demonstrate squashing
 
 commit 41df7384472aeda42eb4cd710572d19a42476cc5
-Author: Martin Husbyn <martin.husbyn@flexciton.com>
+Author: Martin Husbyn <xxx@example.com>
 Date:   Wed Oct 26 16:25:03 2022 +0100
 
     first commit to demonstrate squashing
@@ -386,6 +386,65 @@ Date:   Wed Oct 26 17:07:27 2022 +0100
 </details>
 
 ### Reordering commits
+
+Sometimes we might want to change the ordering of commits. E.g. you might want to change the order so it follows a more logical development path, or group related commits together in the git log.
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-reorder-commits` with two commits on it, both creating a file, but they are in the wrong order:
+
+```commandline
+git --no-pager log --stat  a29ea2..exercise-reorder-commits
+
+commit 2dcca9af417a3c90714fc436444c79e1bd798d58 (HEAD -> exercise-reorder-commits)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:18:54 2022 +0100
+
+    this commit should be first
+
+ first.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit adf290bb85ec6c10a6ead690c00f8b59f806e8d0
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:18:30 2022 +0100
+
+    this commit should be last
+
+ last.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+##### Task
+
+Change the order of the commits so that they are in the right order:
+
+```commandline
+git --no-pager log --stat  a29ea2..exercise-reorder-commits
+commit fbf35bfa14e63455ee7f4192da10bb292c5fc072 (HEAD -> exercise-reorder-commits)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:18:30 2022 +0100
+
+    this commit should be last
+
+ last.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 9d76ea89ea1c15485edee886aca101e80da4ae97
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:18:54 2022 +0100
+
+    this commit should be first
+
+ first.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+</details>
 
 ### Combining non-sequential commits
 
