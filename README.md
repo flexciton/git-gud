@@ -35,7 +35,7 @@ changed%
 </details>
 
 ### Adding to your latest commit
-This exercise will explore adding more content to your existing commit. This is very handy if you have already made a commit but forgot to include something that you subsequently need to add.
+This exercise will explore adding more content to your existing commit. This is very handy if you have already made a commit but forgot to include something that you subsequently need to add. Or for example if you get comments and feedback during a review, that you want to add to your code without creating additional commits.
 
 <details>
 <summary>Exercise</summary>
@@ -186,6 +186,48 @@ changed
 
 
 ### Adding to an earlier commit on your branch
+
+This is similar to our earlier exercise where we added to a commit. However, this time it is not our latest commit, so it is a bit trickier to do it. Again a typical use case here is if you want to add something to your commit based on feedback in a review. E.g. if you have two atomic commits being reviewed, and you get feedback on code that was in your earliest commit so you want to change that (e.g. you forgot to add tests).
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-early-commit-add` with two commits on it. We want to change the file `file_to_modify.txt` added in f4016d0 (1 commit before the tip of the branch):
+
+```commandline
+git diff 0f0606 exercise-early-commit-add~1
+
+diff --git a/file_to_modify.txt b/file_to_modify.txt
+new file mode 100644
+index 0000000..86a11f6
+--- /dev/null
++++ b/file_to_modify.txt
+@@ -0,0 +1 @@
++Add a line below this one
+```
+
+##### Task
+Change the second to last commit so that you add an extra line to the file:
+
+```commandline
+git --no-pager diff 0f0606 exercise-early-commit-add~1
+
+diff --git a/file_to_modify.txt b/file_to_modify.txt
+new file mode 100644
+index 0000000..5ad6477
+--- /dev/null
++++ b/file_to_modify.txt
+@@ -0,0 +1,2 @@
++Add a line below this one
++Hi there, I'm a new line
+```
+
+The other commit should stay the same.
+
+</details>
 
 ### Combining sequential commits
 
