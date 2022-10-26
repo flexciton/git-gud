@@ -1,1 +1,2 @@
 Create this file to show how squashing works
+This sentence is added in a second commit, but we want it to be in the first
