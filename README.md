@@ -521,4 +521,58 @@ Date:   Wed Oct 26 17:31:46 2022 +0100
 
 ### Splitting a commit in two
 
+Sometimes we "overcommit", and put too much into one commit. E.g. you might have started doing some cleanup/refactoring and put that in the same commit as your brand new feature, even though the changes are completely unrelated. Therefore it might sometimes be useful to split a commit into two (or three, or n) commits.
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-split-commit` with one commit in it, adding two files:
+
+```commandline
+git --no-pager log --stat 55f2442..exercise-split-commit
+
+commit 17a285783f599669b6294ec4457bd7b4d4c35353 (HEAD -> exercise-split-commit)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:48:25 2022 +0100
+
+    a commit that should be split
+
+ file_to_be_in_first_commit.txt  | 1 +
+ file_to_be_in_second_commit.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+```
+
+##### Task
+
+Split the commit on the branch, so that we have two commits, each adding one file each:
+
+```commandline
+git --no-pager log --stat 55f2442..exercise-split-commit
+
+commit 6503b60ec9f61493622e30ed2ab769fe58e228f4 (HEAD -> exercise-split-commit)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:51:57 2022 +0100
+
+    second commit
+
+ file_to_be_in_second_commit.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 1123647354d6c64fd4fc1814920fc2342286f378
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:51:44 2022 +0100
+
+    first commit
+
+ file_to_be_in_first_commit.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+</details>
+
+
 
