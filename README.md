@@ -198,7 +198,7 @@ This is similar to our earlier exercise where we added to a commit. However, thi
 This time, we have the branch `exercise-early-commit-add` with two commits on it. We want to change the file `file_to_modify.txt` added in f4016d0 (1 commit before the tip of the branch):
 
 ```commandline
-git diff 0f0606 exercise-early-commit-add~1
+git --no-pager diff 0f0606 exercise-early-commit-add~1
 
 diff --git a/file_to_modify.txt b/file_to_modify.txt
 new file mode 100644
@@ -231,9 +231,57 @@ The other commit should stay the same.
 
 ### Combining sequential commits
 
+Often we might want to combine commits into each other and have them be one single commit. E.g. you might develop your code so that you have tests in one commit, and the implementation in the other. In the end though, you probably want to combine those two commits into a single commit that "implement feature X".
+
 #### Squash
 
+If we want to keep the commit messages we do what's called a 'squash'.
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-combining-squash` with two commits on it, one creating a file, the other one modifying it:
+
+```commandline
+git --no-pager log 10b3c1..exercise-combining-squash
+
+commit 7342c0fe1bd2720ee131e03ff43d4fb8174dca7b (HEAD -> exercise-combining-squash)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 16:26:40 2022 +0100
+
+    second commit to demonstrate squashing
+
+commit 41df7384472aeda42eb4cd710572d19a42476cc5
+Author: Martin Husbyn <martin.husbyn@flexciton.com>
+Date:   Wed Oct 26 16:25:03 2022 +0100
+
+    first commit to demonstrate squashing
+```
+
+##### Task
+
+Merge the two commits into one, but keep their commit messages. Then you should end up with just one commit:
+
+```commandline
+git --no-pager log 10b3c1..exercise-combining-squash
+
+commit a1fd020b88b658869d8e388e93c9dbfb4b4af04e (HEAD -> exercise-combining-squash)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 16:25:03 2022 +0100
+
+    first commit to demonstrate squashing
+
+    second commit to demonstrate squashing
+```
+
+</details>
+
 #### Fixup
+
+If we don't want to keep all commit messages, we do what's called a 'fixup'.
 
 ### Reordering commits
 
