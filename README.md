@@ -333,11 +333,61 @@ Date:   Wed Oct 26 16:37:44 2022 +0100
 
 </details>
 
+### Deleting a commit
+
+Sometimes you want to also delete commits. This allows us to have a cleaner git history over having separate commits 'undoing' what previous commits have done.
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-delete-commit` with two commits on it, both creating a file:
+
+```commandline
+git --no-pager log --stat 3a900ac..exercise-delete-commit
+
+commit da199128bd3d7658f46d1ae95feb1e76ab419faa (HEAD -> exercise-delete-commit, origin/exercise-delete-commit)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:07:27 2022 +0100
+
+    this commit should be kept
+
+ keep_me.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit e2e39021ee492e0d3c46b22b0268bd45afc28b7c
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:06:49 2022 +0100
+
+    this commit should be deleted
+
+ delete_me.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+##### Task
+
+Delete the first commit so we end up with only the second commit:
+
+```commandline
+git --no-pager log --stat 3a900ac..exercise-delete-commit
+commit 0ec0b80a1ef960d8b6599aa6df900930fe73cd2e (HEAD -> exercise-delete-commit)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:07:27 2022 +0100
+
+    this commit should be kept
+
+ keep_me.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+</details>
+
 ### Reordering commits
 
 ### Combining non-sequential commits
-
-### Deleting a commit
 
 ### Splitting a commit in two
 
