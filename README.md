@@ -283,9 +283,61 @@ Date:   Wed Oct 26 16:25:03 2022 +0100
 
 If we don't want to keep all commit messages, we do what's called a 'fixup'.
 
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-combining-fixup` with two commits on it, both creating a file:
+
+```commandline
+git --no-pager log --stat 273091d..exercise-combining-fixup
+
+commit 9ea9ed8948cbfd5aae117389c9b1ca3bdec09bbf (HEAD -> exercise-combining-fixup)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 16:42:48 2022 +0100
+
+    commit to throw away
+
+ fixup_file2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 5de8fee24babba8262e831d1a74fddfcd5a1c425
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 16:37:44 2022 +0100
+
+    commit that should be kept
+
+ fixup_file.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+##### Task
+
+Merge the last commit into the first one, but only keep the first one's commit message. Then you should end up with just one commit:
+
+```commandline
+git --no-pager log --stat 273091d..exercise-combining-fixup
+
+commit 37de61bef0a41e124cd099d28677e45a15ce6333 (HEAD -> exercise-combining-fixup)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 16:37:44 2022 +0100
+
+    commit that should be kept
+
+ fixup_file.txt  | 1 +
+ fixup_file2.txt | 1 +
+ 2 files changed, 2 insertions(+)
+```
+
+</details>
+
 ### Reordering commits
 
 ### Combining non-sequential commits
+
+### Deleting a commit
 
 ### Splitting a commit in two
 
