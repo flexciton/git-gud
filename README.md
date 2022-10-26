@@ -448,6 +448,77 @@ Date:   Wed Oct 26 17:18:54 2022 +0100
 
 ### Combining non-sequential commits
 
+Sometimes we want to combine commits, but there are commits in between them so it's not a straight squash/fixup.
+
+<details>
+
+<summary>Exercise</summary>
+
+##### Setup
+
+This time, we have the branch `exercise-combine-nonsequential` with three commits on it, forming a 'sandwich':
+
+```commandline
+git --no-pager log 7e651b879..exercise-combine-nonsequential
+
+commit bf7be7f6a7c0cb4ed022ad09a684e59f290b9ce7 (HEAD -> exercise-combine-nonsequential, origin/exercise-combine-nonsequential)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:33:15 2022 +0100
+
+    top of commit sandwich
+
+ top.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 781c5302acdc3221f1730147f8df056d347aa8e1
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:32:38 2022 +0100
+
+    commit sandwich topping/filling
+
+ filling.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 64251145b68e33683bfdb07fb1e20bd9a604e92b
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:31:46 2022 +0100
+
+    bottom of commit sandwich
+
+ bottom.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+##### Task
+
+Combine the 'bread' commits so that we instead get an open face sandwich:
+
+```commandline
+git --no-pager log --stat  7e651b879..exercise-combine-nonsequential
+
+commit 33b291e27a19bb14fd263870b726bf668c5e6b1e (HEAD -> exercise-combine-nonsequential)
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:32:38 2022 +0100
+
+    commit sandwich topping/filling
+
+ filling.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 0aae67dc636a9a501d0167147bd6e330e13ae1b9
+Author: Martin Husbyn <xxx@example.com>
+Date:   Wed Oct 26 17:31:46 2022 +0100
+
+    open face commit sandwich bread
+
+ bottom.txt | 1 +
+ top.txt    | 1 +
+ 2 files changed, 2 insertions(+)
+```
+
+</details>
+
+
 ### Splitting a commit in two
 
 
